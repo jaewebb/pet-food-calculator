@@ -28,6 +28,7 @@ function App() {
     setAmount('')
     setAmountError('')
     setCost('')
+    setSize('')
     setFoodType((event.target as HTMLInputElement).value)
   }
 
