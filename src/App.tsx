@@ -27,6 +27,7 @@ function App() {
   const handleFoodTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
     setAmount('')
     setAmountError('')
+    setCost('')
     setFoodType((event.target as HTMLInputElement).value)
   }
 
