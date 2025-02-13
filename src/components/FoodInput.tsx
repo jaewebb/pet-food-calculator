@@ -24,6 +24,7 @@ export default function FoodInput(
       error={error ? true : false}
       helperText={error ? error : helperText}
       id={id}
+      inputMode='decimal'
       label={label}
       value={value}
       variant="outlined"
