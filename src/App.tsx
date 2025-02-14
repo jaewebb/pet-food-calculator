@@ -46,7 +46,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-        <Container maxWidth="sm">
+      <Container maxWidth="sm" sx={{ mt: 5 }}>
         <Box sx={{ m: 2 }}>
           <Typography variant="h1">Pet Food Calculator</Typography>
           <Typography variant="body1">Calculate the cost per {foodUnit} of {foodType === 'can' ? 'canned wet food' : 'a bag of dry kibble'}</Typography>
