@@ -23,7 +23,7 @@ export default function FoodInput(
     label: string,
     pattern: string,
     unit: string,
-    unitPosition: string,
+    unitPosition: 'left' | 'right',
     value: string,
     setError: Dispatch<SetStateAction<string>>,
     setValue: Dispatch<SetStateAction<string>>,
