@@ -1,6 +1,6 @@
 import { ChangeEvent, useMemo, useState } from 'react'
 
-import { CssBaseline, SelectChangeEvent, ThemeProvider } from "@mui/material"
+import { CssBaseline, Paper, SelectChangeEvent, ThemeProvider } from "@mui/material"
 import { Box, Button, Container, Typography } from "@mui/material"
 
 import theme from "./theme"
@@ -47,74 +47,76 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="sm" sx={{ mt: 5 }}>
-        <Box sx={{ m: 2 }}>
-          <Typography variant="h1">Pet Food Calculator</Typography>
-          <Typography variant="body1">Calculate the cost per {foodUnit} of {foodType === 'can' ? 'canned wet food' : 'a bag of dry kibble'}</Typography>
-        </Box>
-        <Box sx={{ m: 2 }}>
-          <FoodTypeForm foodType={foodType} handleFoodTypeChange={handleFoodTypeChange} />
-        </Box>
-        <Box sx={{ m: 2 }}>
-          <FoodUnitForm foodType={foodType} foodUnit={foodUnit} handleFoodUnitChange={handleFoodUnitChange} />
-        </Box>
-        <Box sx={{ m: 2 }}>
-          <FoodInput
-            error={sizeError}
-            errorText={`Please provide a size of ${foodType}`}
-            id="size"
-            label="Size"
-            pattern="^[0-9]+[.,]{1}[0-9]+$"
-            unit={Number(size) > 1 ? foodUnitPlural ?? foodUnit : foodUnit}
-            unitPosition='right'
-            value={size}
-            setError={setSizeError}
-            setValue={setSize}
-          />
-        </Box>
-        {
-          foodType === 'can' ? (
-            <Box sx={{ m: 2 }}>
-              <FoodInput
-                error={amountError}
-                errorText='Please provide the number of cans in the package'
-                id="amount"
-                label="Number of Cans"
-                pattern="^[0-9]+$"
-                value={amount}
-                unit={Number(amount) > 1 ? 'cans' : 'can'}
-                unitPosition='right'
-                setError={setAmountError}
-                setValue={setAmount}
-              />
-            </Box>
-          ) : <></>
-        }
-        <Box sx={{ m: 2 }}>
-          <FoodInput
-            error={priceError}
-            errorText='Please provide a price for the product'
-            id="price"
-            label="Price"
-            pattern="^[0-9]+[.,]{1}[0-9]+$"
-            unit="$"
-            unitPosition="left"
-            value={price}
-            setError={setPriceError}
-            setValue={setPrice}
-          />
-        </Box>
-        <Box sx={{ m: 2 }}>
-          <Button
-            disabled={(!size || (!amount && foodType === 'can') || !price || sizeError || amountError || priceError) ? true : false}
-            variant="outlined"
-            onClick={() => setCost(calculateCost(size, price, amount, foodType))}
-          >
-            <Typography variant="button">Calculate cost per {foodUnit}</Typography>
-          </Button>
-        </Box>
-        <Box sx={{ m: 2 }}>
-          { cost ? <div>Cost is {cost} per {foodUnit}</div> : <></>}
-        </Box>
+        <Paper sx={{ p: 2 }}>
+          <Box sx={{ m: 2 }}>
+            <Typography variant="h1">Pet Food Calculator</Typography>
+            <Typography variant="body1">Calculate the cost per {foodUnit} of {foodType === 'can' ? 'canned wet food' : 'a bag of dry kibble'}</Typography>
+          </Box>
+          <Box sx={{ m: 2 }}>
+            <FoodTypeForm foodType={foodType} handleFoodTypeChange={handleFoodTypeChange} />
+          </Box>
+          <Box sx={{ m: 2 }}>
+            <FoodUnitForm foodType={foodType} foodUnit={foodUnit} handleFoodUnitChange={handleFoodUnitChange} />
+          </Box>
+          <Box sx={{ m: 2 }}>
+            <FoodInput
+              error={sizeError}
+              errorText={`Please provide a size of ${foodType}`}
+              id="size"
+              label="Size"
+              pattern="^[0-9]+[.,]{1}[0-9]+$"
+              unit={Number(size) > 1 ? foodUnitPlural ?? foodUnit : foodUnit}
+              unitPosition='right'
+              value={size}
+              setError={setSizeError}
+              setValue={setSize}
+            />
+          </Box>
+          {
+            foodType === 'can' ? (
+              <Box sx={{ m: 2 }}>
+                <FoodInput
+                  error={amountError}
+                  errorText='Please provide the number of cans in the package'
+                  id="amount"
+                  label="Number of Cans"
+                  pattern="^[0-9]+$"
+                  value={amount}
+                  unit={Number(amount) > 1 ? 'cans' : 'can'}
+                  unitPosition='right'
+                  setError={setAmountError}
+                  setValue={setAmount}
+                />
+              </Box>
+            ) : <></>
+          }
+          <Box sx={{ m: 2 }}>
+            <FoodInput
+              error={priceError}
+              errorText='Please provide a price for the product'
+              id="price"
+              label="Price"
+              pattern="^[0-9]+[.,]{1}[0-9]+$"
+              unit="$"
+              unitPosition="left"
+              value={price}
+              setError={setPriceError}
+              setValue={setPrice}
+            />
+          </Box>
+          <Box sx={{ m: 2 }}>
+            <Button
+              disabled={(!size || (!amount && foodType === 'can') || !price || sizeError || amountError || priceError) ? true : false}
+              variant="outlined"
+              onClick={() => setCost(calculateCost(size, price, amount, foodType))}
+            >
+              <Typography variant="button">Calculate cost per {foodUnit}</Typography>
+            </Button>
+          </Box>
+          <Box sx={{ m: 2 }}>
+            { cost ? <div>Cost is {cost} per {foodUnit}</div> : <></>}
+          </Box>
+        </Paper>
       </Container>
     </ThemeProvider>
   )
