@@ -39,6 +39,7 @@ export default function FoodInput(
   return (
     <TextField
       error={error ? true : false}
+      fullWidth
       helperText={error ? error : helperText}
       id={id}
       inputMode='decimal'
