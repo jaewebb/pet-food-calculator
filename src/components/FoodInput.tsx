@@ -44,7 +44,7 @@ export default function FoodInput(
       inputMode='decimal'
       label={label}
       slotProps={{
-        // htmlInput: { pattern },
+        htmlInput: { pattern },
         input,
       }}
       value={value}

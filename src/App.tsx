@@ -1,6 +1,6 @@
 import { ChangeEvent, useMemo, useState } from 'react'
 
-import { CssBaseline, ThemeProvider } from "@mui/material"
+import { CssBaseline, SelectChangeEvent, ThemeProvider } from "@mui/material"
 import { Box, Button, Typography } from "@mui/material"
 
 import theme from "./theme"
@@ -35,7 +35,7 @@ function App() {
     setFoodType((event.target as HTMLInputElement).value)
   }
 
-  const handleFoodUnitChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleFoodUnitChange = (event: SelectChangeEvent) => {
     setFoodUnit((event.target as HTMLInputElement).value)
   }
 
