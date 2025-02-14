@@ -15,7 +15,7 @@ function getAdornment(unit: string, unitPosition: 'left' | 'right') {
 }
 
 export default function FoodInput(
-  { error, errorText, id, label, pattern, unit, unitPosition = 'left', value, setError, setValue, helperText, } :
+  { error, errorText, id, label, pattern, unit, unitPosition, value, setError, setValue, helperText, } :
   {
     error: string,
     errorText: string,

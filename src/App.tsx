@@ -96,6 +96,7 @@ function App() {
           label="Price"
           pattern="^[0-9]+[.,]{1}[0-9]+$"
           unit="$"
+          unitPosition="left"
           value={price}
           setError={setPriceError}
           setValue={setPrice}
